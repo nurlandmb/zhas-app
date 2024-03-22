@@ -1,0 +1,21 @@
+.banner{
+  min-height: calc(100vh - 100px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+}
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .5;
+  z-index: 1;
+  background-image: linear-gradient(to left, #333333 0%, black 100%);
+}

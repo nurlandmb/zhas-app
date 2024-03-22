@@ -1,0 +1,21 @@
+{
+  "name": "zhas-project",
+  "version": "1.0.0",
+  "description": "Fullstack app Vue+Node.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd backend && npm install && cd ../front && npm install && npm run build",
+    "start": "node backend/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurlandmb/zhas-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nurlandmb/zhas-project/issues"
+  },
+  "homepage": "https://github.com/nurlandmb/zhas-project#readme"
+}

@@ -1,0 +1,6 @@
+.line{
+  @apply after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700
+}
+.active{
+  @apply dark:after:border-blue-800 after:border-blue-100 text-blue-600 dark:text-blue-500
+}
