@@ -3,6 +3,7 @@ import {Banner} from './ui/Banner/Banner.tsx';
 import {Participate} from './ui/Participate/Participate.tsx';
 import {Timeline} from './ui/Timeline/Timeline.tsx';
 import {Contacts} from './ui/Contacts/Contacts.tsx';
+import {Rules} from './ui/Rules/Rules.tsx'
 
 // TODO: BANNER section +
 // TODO: ABOUT project section +
@@ -16,6 +17,7 @@ function Home() {
         <>
             <Banner />
             <About />
+            <Rules />
             <Participate />
             <Timeline />
             <Contacts />

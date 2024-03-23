@@ -473,7 +473,7 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
                           id="socials" placeholder={t('request.userInfo.socials.description')}/>
             </div>
             <div>
-                <Label className={cls.label} value={t('request.userInfo.govProjects.title')}/>
+                <Label className={cls.label} value={t('request.userInfo.howKnew.title')}/>
                 {getHowKnew().map(item => (
                     <div className="flex items-center gap-2" key={item.code}>
                         <Checkbox checked={userForm.howKnew && userForm.howKnew.includes(item.text)} disabled={readonly}
@@ -486,7 +486,7 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
             <div className="mt-1">
                 <Label color={isInputWrong('passportFile')} className={cls.label} htmlFor="multiple-file-upload"
                        value={t('request.userInfo.files.passport')}/>
-                {readonly || userForm.passportFile.length ?
+                {readonly || userForm.passportFile?.length ?
                     userForm.passportFile.map(item => (
                         <div key={item} className="inline-flex mr-2 items-center gap-4">
                             <a target="_blank" href={item}>
@@ -526,7 +526,7 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
             <div className="mt-1">
                 <Label color={isInputWrong('citizenshipFile')} className={cls.label} htmlFor="multiple-file-upload-2"
                        value={t('request.userInfo.files.citizenship')}/>
-                {readonly || userForm.citizenshipFile.length ?
+                {readonly || userForm.citizenshipFile?.length ?
                     userForm.citizenshipFile.map(item => (
                         <div key={item} className="inline-flex mr-4 items-center gap-4">
                             <a target="_blank" href={item}>
@@ -568,7 +568,7 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
                        value={t('request.userInfo.files.notWork')}/>
 
                 {
-                    readonly || userForm.notWorkingFile.length ?
+                    readonly || userForm.notWorkingFile?.length ?
                         userForm.notWorkingFile.map(item => (
                             <div key={item} className="inline-flex mr-2 items-center gap-4">
                                 <a target="_blank" href={item}>

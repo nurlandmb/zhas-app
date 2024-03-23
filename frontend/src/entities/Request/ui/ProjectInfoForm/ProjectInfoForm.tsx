@@ -77,8 +77,8 @@ export const ProjectInfoForm = memo(({className}: ProjectInfoFormProps) => {
         if (field === 'budget') {
             arrCopy.push({
                 title: '',
-                amount: 1,
-                price: 1,
+                amount: '',
+                price: '',
                 total: null
             })
         }

@@ -5,7 +5,7 @@ import {useTimer} from 'react-timer-hook';
 import {useEffect} from 'react';
 import {addLeadingZero} from 'shared/lib/addLeadingZero.ts';
 import Banner1 from 'shared/assets/img/first.jpg';
-const EXPIRATION_DATE = new Date(2024, 2, 24);
+const EXPIRATION_DATE = new Date(2024, 2, 25);
 
 export function Banner(){
     const { t } = useTranslation();
