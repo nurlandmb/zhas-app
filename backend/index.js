@@ -15,8 +15,8 @@ const dev = 'http://localhost:5173';
 app.use(
   cors({
     credentials: true,
-    // origin: client,
-    origin: dev,
+    origin: client,
+    // origin: dev,
   })
 );
 app.use('/api', router);
