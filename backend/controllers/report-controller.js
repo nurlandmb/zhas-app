@@ -1,5 +1,5 @@
 const ReportService = require('../services/report-service');
-const ReportModel = require('../models/report-model')
+const ReportModel = require('../models/report-model');
 class ReportController {
     async create(req, res, next){
         try{

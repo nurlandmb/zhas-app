@@ -34,7 +34,7 @@ export const ProjectInfoForm = memo(({className}: ProjectInfoFormProps) => {
         const project = localStorage.getItem('zhas-2024-project');
         if(!project || readonly) return;
         const parsedUserForm = project ? JSON.parse(project) : {};
-        dispatch(setUserForm({ ...projectForm, ...parsedUserForm }));
+        dispatch(setProjectForm({ ...projectForm, ...parsedUserForm }));
     }, []);
 
     const isInputWrong = (field: string) => {
