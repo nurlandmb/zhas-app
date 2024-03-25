@@ -231,6 +231,7 @@ export const RequestForm = memo(({className}: RequestFormProps) => {
 
             const {data} = await $api.post('/request/create', body);
             setModalCode(data.code);
+            localStorage.setItem('zhas-2024-code', data.code);
             dispatch(setIsLoading(false));
             onSuccess();
         } catch(err){

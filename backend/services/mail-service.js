@@ -14,13 +14,14 @@ class MailService{
         })
     }
 
-    async sendMail(to, subject = '', html = '', text = ''){
+    async sendMail(to, subject = '', html = '', text = '', attachments = []){
         await this.transporter.sendMail({
             from: '<space.log@mail.ru>',
             to,
             subject,
             text,
-            html
+            html,
+            attachments
         })
     }
 

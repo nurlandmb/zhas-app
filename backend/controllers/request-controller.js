@@ -8,7 +8,19 @@ class RequestController {
             const request = await RequestService.create(req.body);
 
             const mailTemplate = requestTemplate(req.body);
-            await mailService.sendMail('nzt.dmb@gmail.com', 'Request', mailTemplate);
+            const passportFiles = req.body.content.userForm.passportFile.map((item, i) => {
+                return { path: item }
+            });
+            const citizenshipFiles = req.body.content.userForm.citizenshipFile.map((item, i) => {
+                return { path: item }
+            });
+            const notWorkingFiles = req.body.content.userForm.notWorkingFile.map((item, i) => {
+                return { path: item }
+            })
+
+            const allFiles = [...passportFiles, ...citizenshipFiles, ...notWorkingFiles];
+
+            await mailService.sendMail('nzt.dmb@gmail.com', 'Request', mailTemplate, '' , allFiles);
 
             res.send(request);
         } catch(err){
