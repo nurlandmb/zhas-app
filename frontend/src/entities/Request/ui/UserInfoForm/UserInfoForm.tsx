@@ -188,8 +188,9 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
         }
     }, [updateUserForm, userForm])
 
-    const isAnotherGovSelected = () => userForm.govProjects && userForm.govProjects.includes('another');
-    const isFemale = () => userForm.gender === 'female';
+    const isAnotherGovSelected = () => userForm.govProjects &&
+        (userForm.govProjects.includes('Басқа (қолмен енгізу)') || userForm.govProjects.includes('Другое (ввести вручную)'));
+    const isFemale = () => userForm.gender === 'Әйел' || userForm.gender === 'Женский' ;
     const isNotWorking = () => userForm.currentlyFree;
 
     const isInputWrong = (field: UserFormKeys) => {
@@ -330,8 +331,8 @@ export const UserInfoForm = memo(({className}: UserInfoFormProps) => {
 
             {/*<div className="md:flex items-center gap-4 mt-1">*/}
                 <div className="flex-grow basis-0.5">
-                    <Label color={isInputWrong('notWorkingFor')} className={cls.label} htmlFor="isStudying" value={t('request.userInfo.isStudying.title')}/>
-                    <Select color={isInputWrong('notWorkingFor')} value={userForm.isStudying} onChange={e => updateUserForm('isStudying', e.target.value)}
+                    <Label color={isInputWrong('isStudying')} className={cls.label} htmlFor="isStudying" value={t('request.userInfo.isStudying.title')}/>
+                    <Select color={isInputWrong('isStudying')} value={userForm.isStudying} onChange={e => updateUserForm('isStudying', e.target.value)}
                             id="isStudying">
                         <option disabled value="" />
                         <option value="confirm">
