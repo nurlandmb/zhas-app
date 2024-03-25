@@ -5,6 +5,8 @@ import {useTimer} from 'react-timer-hook';
 import {useEffect} from 'react';
 import {addLeadingZero} from 'shared/lib/addLeadingZero.ts';
 import Banner1 from 'shared/assets/img/first.jpg';
+import {Link} from 'react-router-dom';
+import {Button} from 'flowbite-react';
 const EXPIRATION_DATE = new Date(2024, 2, 25);
 
 export function Banner(){
@@ -22,18 +24,17 @@ export function Banner(){
             <div className={cls.overlay} />
             <div className="container z-10 px-5 flex flex-col-reverse md:flex-row items-stretch gap-6">
                 <div className="flex-1 px-4 py-4 rounded-xl bg-indigo-950/40">
-                    <h1 className="text-xl sm:text-4xl text-left text-gray-200 mb-12 font-medium" dangerouslySetInnerHTML={{__html: t('home.title')}}>
+                    <h1 className="text-xl sm:text-4xl text-left text-gray-200 mb-8 font-medium" dangerouslySetInnerHTML={{__html: t('home.title')}}>
                     </h1>
-                    <p className="text-gray-200 text-3xl mb-2">
-                        { t('home.timeRemaining') }
-                    </p>
-                    <div className="text-gray-200 text-3xl md:text-5xl font-thin font-mono">
-                        <span>{addLeadingZero(days)}</span>:
-                        <span>{addLeadingZero(hours)}</span>:
-                        <span>{addLeadingZero(minutes)}</span>:
-                        <span>{addLeadingZero(seconds)}</span>
-                    </div>
-                    <div className="mt-6 md:mt-10 mb-4">
+                    {/*<p className="text-gray-200 text-3xl mb-2">*/}
+                    {/*    { t('home.timeRemaining') }*/}
+                    {/*</p>*/}
+                    <Button color="success" size="lg">
+                        <Link to='/request'>
+                            { t('ui.request') }
+                        </Link>
+                    </Button>
+                    <div className="mt-4 md:mt-8 mb-4">
                         <a className="hover:opacity-50 duration-300 text-gray-200 flex items-center gap-2" href="https://www.instagram.com/zhas_project_almaty_abay_obl/" target="_blank">
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
                                  className="w-6 h-6  md:w-8 md:h-8" viewBox="0 0 24 24">

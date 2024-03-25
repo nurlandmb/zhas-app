@@ -1,4 +1,7 @@
 import {useTranslation} from 'react-i18next';
+import {Button} from 'flowbite-react';
+import {Link} from 'react-router-dom';
+import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher.tsx';
 
 export function Participate(){
     const {t} = useTranslation();
@@ -51,6 +54,13 @@ export function Participate(){
                             <p className="leading-relaxed text-lg">{ t('participate.fourth') }</p>
                         </div>
                     </div>
+                </div>
+                <div className="flex items-center justify-center">
+                    <Button color="success" size="lg">
+                        <Link to='/request'>
+                            { t('ui.request') }
+                        </Link>
+                    </Button>
                 </div>
                 {/*<button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>*/}
             </div>

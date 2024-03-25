@@ -3,7 +3,10 @@ import GerbLogo from 'shared/assets/img/gerb.png';
 import ZhasLogo from 'shared/assets/img/logo.png';
 import {Link} from 'react-router-dom';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher.tsx';
+import {Button} from 'flowbite-react';
+import {useTranslation} from 'react-i18next';
 export function Header(){
+    const {t} = useTranslation();
     return (
         <header className="text-gray-600 body-font relative z-20">
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row gap-6 items-center justify-between">
@@ -25,7 +28,15 @@ export function Header(){
                 {/*    <a className="mr-5 hover:text-gray-900">Third Link</a>*/}
                 {/*    <a className="mr-5 hover:text-gray-900">Fourth Link</a>*/}
                 {/*</nav>*/}
-                <LangSwitcher />
+                <div className="flex items-center gap-2">
+                    <Button color="success" size="lg">
+                        <Link to='/request'>
+                            { t('ui.request') }
+                        </Link>
+                    </Button>
+                    <LangSwitcher />
+                </div>
+
             </div>
         </header>
     );
