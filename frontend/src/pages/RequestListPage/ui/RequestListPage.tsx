@@ -6,7 +6,7 @@ import {RequestForm, setProjectForm, setReadonly, setUserForm} from 'entities/Re
 import {toast} from 'react-toastify';
 import {saveAs} from 'file-saver';
 import {useNavigate} from 'react-router-dom';
-import {useTranslation} from 'react-i18next/index';
+import {useTranslation} from 'react-i18next';
 const RequestListPage = () => {
     const [requests, setRequests] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
