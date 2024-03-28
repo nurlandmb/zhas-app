@@ -6,6 +6,7 @@ import {RequestForm, setProjectForm, setReadonly, setUserForm} from 'entities/Re
 import {toast} from 'react-toastify';
 import {saveAs} from 'file-saver';
 import {useNavigate} from 'react-router-dom';
+import {useTranslation} from 'react-i18next/index';
 const RequestListPage = () => {
     const [requests, setRequests] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +14,7 @@ const RequestListPage = () => {
     const [showModal, setShowModal] = useState(false);
     const [isWordLoading, setIsWordLoading] = useState(false);
     const navigate = useNavigate();
+    const {i18n} = useTranslation();
 
     const loadPosts = async () => {
         setIsLoading(true);
@@ -24,6 +26,7 @@ const RequestListPage = () => {
     const openRequest = (id: string) => {
         const request = requests.find(req => req.id === id);
         if(!request) return;
+        i18n.changeLanguage(request.content.lang);
         dispatch(setUserForm(request.content.userForm))
         dispatch(setProjectForm(request.content.projectForm))
         dispatch(setReadonly(true));
