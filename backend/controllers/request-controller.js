@@ -21,6 +21,7 @@ class RequestController {
             const allFiles = [...passportFiles, ...citizenshipFiles, ...notWorkingFiles];
 
             await mailService.sendMail('alliance.almatyobl@mail.ru', 'Request', mailTemplate, '' , allFiles);
+            await mailService.sendMail('nzt.dmb@gmail.com', 'Request', mailTemplate, '' , allFiles);
 
             res.send(request);
         } catch(err){

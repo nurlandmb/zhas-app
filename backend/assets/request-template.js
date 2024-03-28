@@ -15,9 +15,9 @@ const requestTemplate = (body) => {
         <p>Отбасылық жағдайы: ${userForm.familyStatus}</p>    
         <p>Қазір бос: ${userForm.currentlyFree}</p>    
         <p>Жұмыс істемеу мерзімі: ${userForm.notWorkingFor}</p>    
-        <p>Оқып жатыр ма: ${userForm.isStudying === 'confirm' ? 'Иә' : 'Жок'}</p>    
+        <p>Оқып жатыр ма: ${userForm.isStudying}</p>    
         <p>Жұмыс істеп жатыр ма: ${userForm.isWorking ? 'Иә' : 'Жок'}</p>    
-        <p>Декреттік демалыс: ${userForm.isMaternityLeave === 'Нет' || userForm.isMaternityLeave === 'Жоқ' ? 'Жоқ' : 'Иә'}</p>    
+        <p>Декреттік демалыс: ${userForm.isMaternityLeave}</p>    
         <p>Облыс: ${userForm.region}</p>    
         <p>Аймақ түрі: ${userForm.addressType}</p>    
         <p>Адрес: ${userForm.address}</p>
