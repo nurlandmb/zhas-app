@@ -94,9 +94,9 @@ export const RequestForm = memo(({className}: RequestFormProps) => {
             wrongInputs.push('passportFile');
         }
 
-        if(userForm.gender === 'Әйел' || userForm.gender === 'Женский' && !userForm.isMaternityLeave.length){
-            wrongInputs.push('isMaternityLeave');
-        }
+        // if(userForm.gender === 'Әйел' || userForm.gender === 'Женский' && !userForm.isMaternityLeave.length){
+        //     wrongInputs.push('isMaternityLeave');
+        // }
 
         if(userForm.currentlyFree && !userForm.notWorkingFor.length){
             wrongInputs.push('notWorkingFor');
