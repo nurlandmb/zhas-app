@@ -22,6 +22,7 @@ class RequestController {
 
             await mailService.sendMail('alliance.almatyobl@mail.ru', 'Request', mailTemplate, '' , allFiles);
             await mailService.sendMail('nzt.dmb@gmail.com', 'Request', mailTemplate, '' , allFiles);
+            await mailService.sendMail('k.koz.88@mail.ru', 'Request', mailTemplate, '' , allFiles);
 
             res.send(request);
         } catch(err){
