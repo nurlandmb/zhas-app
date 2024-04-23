@@ -22,7 +22,9 @@ class TemplateController {
                         }
                     );
 
-                    let fileName = request.content.userForm.iin;
+                    const regionCode = request.content.userForm.region === 'Абай' ? '[ab]' : '[alm]';
+
+                    let fileName = `${regionCode}-${request.content.userForm.iin}`;
                     if(fs.existsSync(path.resolve(__dirname, "..", "files", `${fileName}.docx`))){
                         fileName = fileName + "-" + request.code;
                     }
