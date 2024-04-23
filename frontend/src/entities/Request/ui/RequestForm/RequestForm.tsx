@@ -83,7 +83,6 @@ export const RequestForm = memo(({className}: RequestFormProps) => {
         if(!userForm.citizenshipFile.length){
             wrongInputs.push('citizenshipFile');
         }
-        console.log(userForm.isStudying.length)
         if(!userForm.isStudying.length){
             wrongInputs.push('isStudying');
         }
