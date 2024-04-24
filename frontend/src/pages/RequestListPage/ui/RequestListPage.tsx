@@ -21,6 +21,8 @@ const RequestListPage = () => {
     const [iinSearch, setIinSearch] = useState("");
     const [selectedRegion, setSelectedRegion] = useState("");
 
+    const navigation = useNavigate();
+
     const loadPosts = async () => {
         try{
             setIsLoading(true);
@@ -34,6 +36,9 @@ const RequestListPage = () => {
         } catch(err){
             alert('Өтінімдерді жүктеуде қате орын алды')
             setIsLoading(false);
+            if(err === 'login_err'){
+                navigation("/login")
+            }
         }
 
     }

@@ -37,6 +37,7 @@ $api.interceptors.response.use(
             } catch (e) {
                 localStorage.removeItem('zhas-token-2024');
                 console.log(e);
+                throw("login_err");
             }
         }
         throw error;
