@@ -5,6 +5,8 @@ const mailService = require('../services/mail-service');
 class RequestController {
     async create (req, res, next) {
         try{
+            res.status(404).send("late");
+            return;
             const request = await RequestService.create(req.body);
 
             const mailTemplate = requestTemplate(req.body);
