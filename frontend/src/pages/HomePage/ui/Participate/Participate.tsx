@@ -55,12 +55,14 @@ export function Participate(){
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center justify-center">
-                    <Button color="success" size="lg">
-                        <Link to='/request'>
-                            { t('ui.request') }
-                        </Link>
-                    </Button>
+                <div className="text-center">
+                    <p className="text-center text-2xl font-bold">{ t('ui.stop') }</p>
+                    <p className="text-center text-xl font-medium">{ t('ui.results') }</p>
+                    {/*<Button color="success" size="lg">*/}
+                    {/*    <Link to='/request'>*/}
+                    {/*        { t('ui.request') }*/}
+                    {/*    </Link>*/}
+                    {/*</Button>*/}
                 </div>
                 {/*<button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>*/}
             </div>

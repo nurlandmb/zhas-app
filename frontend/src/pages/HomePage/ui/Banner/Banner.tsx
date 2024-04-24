@@ -29,11 +29,13 @@ export function Banner(){
                     {/*<p className="text-gray-200 text-3xl mb-2">*/}
                     {/*    { t('home.timeRemaining') }*/}
                     {/*</p>*/}
-                    <Button color="success" size="lg">
-                        <Link to='/request'>
-                            { t('ui.request') }
-                        </Link>
-                    </Button>
+                    <p className="text-left text-2xl font-bold text-gray-200">{ t('ui.stop') }</p>
+                    <p className="text-left text-xl font-medium text-gray-200">{ t('ui.results') }</p>
+                    {/*<Button color="success" size="lg">*/}
+                    {/*    <Link to='/request'>*/}
+                    {/*        { t('ui.request') }*/}
+                    {/*    </Link>*/}
+                    {/*</Button>*/}
                     <div className="mt-4 md:mt-8 mb-4">
                         <a className="hover:opacity-50 duration-300 text-gray-200 flex items-center gap-2" href="https://www.instagram.com/zhas_project_almaty_abay_obl/" target="_blank">
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"

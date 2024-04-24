@@ -206,6 +206,7 @@ export const RequestForm = memo(({className}: RequestFormProps) => {
     }
 
     const onSubmitHandler = async () => {
+        alert(t('ui.stop'))
         try{
             if(activeTab === 0){
                 const isInputsInvalid = validateUserInputs();
@@ -269,19 +270,20 @@ export const RequestForm = memo(({className}: RequestFormProps) => {
             </Modal>
             {/*<Stepper className="mx-auto" steps={requestSteps} currentStep={currentStep} />*/}
             <div className="flex flex-col gap-3">
-                <h2 className="text-center mt-2 text-lg font-medium">{ t("request.title") }</h2>
-
-                <Tabs style="underline" aria-label="Default tabs" ref={tabsRef} onActiveTabChange={(tab) => setActiveTab(tab)}>
-                    <Tabs.Item title={t('request.userInfo.tabTitle')} icon={UserIcon}>
-                        <UserInfoForm />
-                    </Tabs.Item>
-                    <Tabs.Item title={t('request.projectInfo.tabTitle')} icon={BriefcaseIcon}>
-                        <ProjectInfoForm />
-                    </Tabs.Item>
-                </Tabs>
+                {/*<h2 className="text-center mt-2 text-lg font-medium">{ t("request.title") }</h2>*/}
+                <p className="text-center text-md font-bold text-red-500">{ t('ui.stop') }</p>
+                <p className="text-center text-xl font-medium text-red-500">{ t('ui.results') }</p>
+                {/*<Tabs style="underline" aria-label="Default tabs" ref={tabsRef} onActiveTabChange={(tab) => setActiveTab(tab)}>*/}
+                {/*    <Tabs.Item title={t('request.userInfo.tabTitle')} icon={UserIcon}>*/}
+                {/*        <UserInfoForm />*/}
+                {/*    </Tabs.Item>*/}
+                {/*    <Tabs.Item title={t('request.projectInfo.tabTitle')} icon={BriefcaseIcon}>*/}
+                {/*        <ProjectInfoForm />*/}
+                {/*    </Tabs.Item>*/}
+                {/*</Tabs>*/}
             </div>
 
-            {!readonly && <div className="mt-4 flex justify-between">
+            {!readonly && false && <div className="mt-4 flex justify-between">
                 <Button size="sm" disabled={activeTab === 0} onClick={() => updateStep('dec')}>{t('ui.back')}</Button>
                 <Button size="sm" disabled={isLoading} isProcessing={isLoading} onClick={onSubmitHandler}
                         type="button">{

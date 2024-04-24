@@ -22,11 +22,20 @@ const RequestListPage = () => {
     const [selectedRegion, setSelectedRegion] = useState("");
 
     const loadPosts = async () => {
-        setIsLoading(true);
-        const {data} = await $api.get('/request/load-all');
-        setRequests(data);
-        setFilteredRequests(data);
-        setIsLoading(false);
+        try{
+            setIsLoading(true);
+            const {data} = await $api.get('/request/load-all');
+            if(!Array.isArray(data)){
+                throw new Error();
+            }
+            setRequests(data);
+            setFilteredRequests(data);
+            setIsLoading(false);
+        } catch(err){
+            alert('Өтінімдерді жүктеуде қате орын алды')
+            setIsLoading(false);
+        }
+
     }
 
     const openRequest = (id: string) => {

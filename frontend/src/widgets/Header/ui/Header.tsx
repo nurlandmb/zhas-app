@@ -29,11 +29,11 @@ export function Header(){
                 {/*    <a className="mr-5 hover:text-gray-900">Fourth Link</a>*/}
                 {/*</nav>*/}
                 <div className="flex items-center gap-2">
-                    <Button color="success" size="lg">
-                        <Link to='/request'>
-                            { t('ui.request') }
-                        </Link>
-                    </Button>
+                    {/*<Button color="success" size="lg">*/}
+                    {/*    <Link to='/request'>*/}
+                    {/*        { t('ui.request') }*/}
+                    {/*    </Link>*/}
+                    {/*</Button>*/}
                     <LangSwitcher />
                 </div>
 
