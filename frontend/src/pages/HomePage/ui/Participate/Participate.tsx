@@ -2,6 +2,7 @@ import {useTranslation} from 'react-i18next';
 import {Button} from 'flowbite-react';
 import {Link} from 'react-router-dom';
 import LangSwitcher from 'shared/ui/LangSwitcher/LangSwitcher.tsx';
+import TechList from 'shared/assets/list.pdf';
 
 export function Participate(){
     const {t} = useTranslation();
@@ -58,6 +59,8 @@ export function Participate(){
                 <div className="text-center">
                     <p className="text-center text-2xl font-bold">{ t('ui.stop') }</p>
                     <p className="text-center text-xl font-medium">{ t('ui.results') }</p>
+                    <a className="mt-4 block hover:opacity-50 duration-300 text-gray-200 " href={TechList} target='_blank'>
+                        <Button className="mx-auto" color="success" size="lg">{t('banner.techList')} </Button></a>
                     {/*<Button color="success" size="lg">*/}
                     {/*    <Link to='/request'>*/}
                     {/*        { t('ui.request') }*/}
