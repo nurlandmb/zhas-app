@@ -34,8 +34,8 @@ export const Rules = () => {
                         </Button>
                     </Button.Group>
                 </div>
-                <a className="mt-4 block hover:opacity-50 duration-300 text-gray-200 text-center mx-auto" href={TechList} target='_blank'>
-                        <Button className='mx-auto' color="success" size="lg">{t('banner.techList')} </Button></a>
+                {/*<a className="mt-4 block hover:opacity-50 duration-300 text-gray-200 text-center mx-auto" href={TechList} target='_blank'>*/}
+                {/*        <Button className='mx-auto' color="success" size="lg">{t('banner.techList')} </Button></a>*/}
                 {/*<button className="flex mx-auto mt-16 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>*/}
             </div>
         </section>
