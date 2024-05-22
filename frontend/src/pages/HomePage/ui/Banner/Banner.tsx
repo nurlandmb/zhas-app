@@ -11,6 +11,7 @@ import {Button, Label, Modal, TextInput} from 'flowbite-react';
 const EXPIRATION_DATE = new Date(2024, 2, 25);
 import TechList from 'shared/assets/list.pdf';
 import ResList from 'shared/assets/winners.pdf'
+import {$api} from 'shared/api/api.ts';
 
 export function Banner() {
     const {t} = useTranslation();
@@ -19,7 +20,19 @@ export function Banner() {
     });
 
     const [showModal, setShowModal] = useState(false);
+    // const [project, setProject] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    const [project, setProject] = useState([]);
     const [codeOrIIN, setCodeOrIIN] = useState("");
+
+    const searchRequest = async (event) => {
+        event.preventDefault();
+        setIsLoading(true);
+        const {data} = await $api.get('/request/status/' + codeOrIIN.trim());
+        setProject(data);
+        console.log(data);
+        setIsLoading(false);
+    }
 
     useEffect(() => {
         start();
@@ -30,19 +43,47 @@ export function Banner() {
             <Modal dismissible show={showModal} onClose={() => setShowModal(false)}>
                 <Modal.Header>{t('ui.resultsTitle')}</Modal.Header>
                 <Modal.Body>
-                    {/*<form className="mb-10">*/}
-                    {/*    <div className="mb-2">*/}
-                    {/*        <Label className="mb-2 block" htmlFor="codeOrIIN"*/}
-                    {/*               value={t('ui.enterCode')}/>*/}
-                    {/*        <TextInput value={codeOrIIN} onChange={e => setCodeOrIIN(e.target.value)} id="codeOrIIN" type="number"*/}
-                    {/*                    required/>*/}
-                    {/*    </div>*/}
-                    {/*    <Button className="" color="success">{t('ui.check')}</Button>*/}
-                    {/*</form>*/}
-                    {/*<hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />*/}
+                    <form className="mb-5" onSubmit={searchRequest}>
+                        <div className="mb-2">
+                            <Label className="mb-2 block" htmlFor="codeOrIIN"
+                                   value={t('ui.enterCode')}/>
+                            <TextInput value={codeOrIIN} onChange={e => setCodeOrIIN(e.target.value)} id="codeOrIIN"
+                                       type="number"
+                                       required/>
+                        </div>
+                        <Button disabled={isLoading} type="submit" color="success">{t('ui.check')}</Button>
+                    </form>
+                    {
+                        project.length > 0 && (
+                            <div>
+                                <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"/>
+                                {
+                                    project.map((item, idx) => <div key={idx}>
+                                        <div className="mb-2">
+                                            <span>{t('request.projectInfo.name.title')}: </span>
+                                            {item.title}
+                                        </div>
+                                        <div className="mb-2">
+                                            <span>{t('ui.fio')}: </span>
+                                            {item.fio}
+                                        </div>
+                                        <div className="mb-2">
+                                            {item.status === 'success' && t('ui.success')}
+                                            {item.status === 'created' && t('ui.failure')}
+                                            {item.status === 'NOT_FOUND' && t('ui.notFound')}
+                                        </div>
+                                    </div>)
+                                }
+
+                            </div>
+                        )
+
+                    }
+
+                    <hr className="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700"/>
                     <div className="space-y-6">
                         <a className="block underline text-blue-600 my-0 " href={TechList}
-                            target="_blank">{t('ui.techList')}</a>
+                           target="_blank">{t('ui.techList')}</a>
                         <a className="block underline text-blue-600 my-0 mt-1" href={ResList} target="_blank">
                             {t('ui.resultsList')}
                         </a>

@@ -14,6 +14,32 @@ class RequestService {
 
         return requestsDto;
     }
+
+    async getStatus(codeOrIin){
+        let isIin = true;
+        if(codeOrIin.length === 6){
+            isIin = false;
+        }
+
+        let query;
+
+        if(isIin){
+            query = {'content.userForm.iin': codeOrIin};
+        }else{
+            query = {code: codeOrIin};
+        }
+
+        const requests = await RequestModel.find(query);
+        if(!requests || !requests.length){
+            return [{fio: "", title: "", status: "NOT_FOUND"}]
+        }
+
+        return requests.map(request => ({
+            fio: `${request.content.userForm.surname} ${request.content.userForm.name}`,
+            title: request.content.projectForm.title,
+            status: request.status,
+        }))
+    }
 }
 
 module.exports = new RequestService();

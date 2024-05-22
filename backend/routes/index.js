@@ -28,6 +28,7 @@ router.post(
 
 router.post('/request/create', requestController.create);
 router.get('/request/load-all', AuthMiddleware, AdminMiddleware, requestController.loadAll);
+router.get('/request/status/:id', requestController.checkStatus);
 
 router.post('/template/docx', templateController.generateTemplate);
 

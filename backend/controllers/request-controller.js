@@ -33,6 +33,16 @@ class RequestController {
         }
     }
 
+    async checkStatus(req, res, next){
+        try{
+            const status = await RequestService.getStatus(req.params.id);
+            res.send(status)
+        }catch(err){
+            console.log(err);
+            next(err);
+        }
+    }
+
     async loadAll (req, res, next) {
         try{
             const requests = await RequestService.loadAll();
